@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:f_202110_firebase/data/model/record.dart';
+import 'package:f_202110_firebase/domain/model/record.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 

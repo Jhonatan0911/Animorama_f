@@ -21,7 +21,7 @@ class GpsPage extends StatelessWidget {
       body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-          child: GpsScreen(),
+          //child: GpsScreen(),
         ),
       ),
     );

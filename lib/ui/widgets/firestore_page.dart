@@ -1,4 +1,4 @@
-import 'package:f_202110_firebase/data/model/record.dart';
+import 'package:f_202110_firebase/domain/model/record.dart';
 import 'package:f_202110_firebase/domain/controller/firestore_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,7 +1,29 @@
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:f_202110_firebase/domain/managements/auth_management.dart';
+
 
 class AuthenticationController extends GetxController {
+
+  final _authenticated = false.obs;
+  final _currentUser = Rx<User?>(null);
+ 
+
+  set currentUser(User? userAuth) {
+    _currentUser.value = userAuth;
+    _authenticated.value = userAuth != null;
+  }
+
+  // Reactive Getters
+  RxBool get reactiveAuth => _authenticated;
+  Rx<User?> get reactiveUser => _currentUser;
+
+  // Getters
+  bool get authenticated => _authenticated.value;
+  User? get currentUser => _currentUser.value;
+
+
+
   Future<void> login(theEmail, thePassword) async {
     try {
       await FirebaseAuth.instance
@@ -46,4 +68,15 @@ class AuthenticationController extends GetxController {
     String email = FirebaseAuth.instance.currentUser!.email ?? "a@a.com";
     return email;
   }
+
+  String userUid() {
+    String _uid = FirebaseAuth.instance.currentUser!.uid ;
+    return _uid;
+  }
+
+  String userName() {
+    String name = FirebaseAuth.instance.currentUser!.displayName ?? "User";
+    return name;
+  }
+
 }
