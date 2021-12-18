@@ -1,6 +1,9 @@
 import 'package:f_202110_firebase/domain/controller/authentication_controller.dart';
 import 'package:f_202110_firebase/domain/controller/chat_controller.dart';
 import 'package:f_202110_firebase/domain/controller/firestore_controller.dart';
+import 'package:f_202110_firebase/domain/controller/location.dart';
+import 'package:f_202110_firebase/domain/controller/permissions.dart';
+import 'package:f_202110_firebase/domain/managements/permission_management.dart';
 import 'package:f_202110_firebase/domain/managements/theme_management.dart';
 import 'package:f_202110_firebase/domain/controller/theme_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,6 +37,10 @@ class _AppState extends State<App> {
     ever(controller.reactiveDarkMode, (bool isDarkMode) {
       manager.changeTheme(isDarkMode: isDarkMode);
     });
+    PermissionsController permissionsController =
+        Get.put(PermissionsController());
+    permissionsController.permissionManager = PermissionManager();
+    Get.lazyPut(() => LocationController());
     initializeTheme();
     super.initState();
   }
