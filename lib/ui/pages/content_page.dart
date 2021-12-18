@@ -1,5 +1,6 @@
 import 'package:f_202110_firebase/domain/controller/authentication_controller.dart';
 import 'package:f_202110_firebase/ui/pages/gps_page.dart';
+import 'package:f_202110_firebase/ui/pages/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,8 @@ class _ContentPageState extends State<ContentPage> {
   static List<Widget> _widgets = <Widget>[
     FirestorePage(),
     ChatPage(),
-    GpsPage()
+    GpsPage(),
+    PostPage()
   ]; //páginas de navegación
 
   _onItemTapped(int index) {
