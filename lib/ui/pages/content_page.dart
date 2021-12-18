@@ -2,10 +2,9 @@ import 'package:f_202110_firebase/domain/controller/authentication_controller.da
 import 'package:f_202110_firebase/ui/pages/gps_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:f_202110_firebase/ui/pages/screens/gps_screen.dart';
 
-import '../widgets/chat_page.dart';
-import '../widgets/firestore_page.dart';
+import 'chat_page.dart';
+import 'firestore_page.dart';
 
 class ContentPage extends StatefulWidget {
   @override
@@ -16,9 +15,9 @@ class _ContentPageState extends State<ContentPage> {
   int _selectIndex = 0;
   AuthenticationController authenticationController = Get.find();
   static List<Widget> _widgets = <Widget>[
-    FireStorePage(),
+    FirestorePage(),
     ChatPage(),
-    GpsScreen()
+    GpsPage()
   ]; //páginas de navegación
 
   _onItemTapped(int index) {
@@ -30,10 +29,6 @@ class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.purple,
-          title: Text("Bienvenid@ ${authenticationController.userEmail()}"),
-      ),
       body: _widgets.elementAt(_selectIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

@@ -11,11 +11,14 @@ import 'package:f_202110_firebase/ui/widgets/location_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 // import 'package:workmanager/workmanager.dart';
 
+class GpsScreen extends StatefulWidget {
+  const GpsScreen({Key? key}) : super(key: key);
 
+  @override
+  _State createState() => _State();
+}
 
-class GpsScreen extends StatelessWidget {
-
-  GpsScreen({Key? key}) : super(key: key);
+class _State extends State<GpsScreen> {
 
   final authController = Get.find<AuthenticationController>();
   final permissionsController = Get.find<PermissionsController>();

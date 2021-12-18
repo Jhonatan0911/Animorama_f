@@ -9,12 +9,14 @@ import 'package:loggy/loggy.dart';
 
 final databaseReference = FirebaseDatabase.instance.reference();
 
-class ChatPage extends StatefulWidget {
+class ChatScreen extends StatefulWidget {
+  const ChatScreen({Key? key}) : super(key: key);
+
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageState extends State<ChatScreen> {
   late TextEditingController _controller;
   late ScrollController _scrollController;
   ChatController chatController = Get.find();

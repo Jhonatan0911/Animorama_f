@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prompt_dialog/prompt_dialog.dart';
 
-class FireStorePage extends StatefulWidget {
+class FirestoreScreen extends StatefulWidget {
+  const FirestoreScreen({Key? key}) : super(key: key);
+
   @override
-  State<FireStorePage> createState() => _FireStorePageState();
+  State<FirestoreScreen> createState() => _FireStorePageState();
 }
 
-class _FireStorePageState extends State<FireStorePage> {
+class _FireStorePageState extends State<FirestoreScreen> {
   final FirebaseController firebaseController = Get.find();
+  
 
   @override
   void initState() {
