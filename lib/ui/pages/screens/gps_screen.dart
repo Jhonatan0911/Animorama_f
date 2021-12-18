@@ -102,7 +102,7 @@ class _State extends State<GpsScreen> {
             }
           }),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 370.0),
+            padding: const EdgeInsets.symmetric(vertical: 300.0),
             child: Align(
               alignment: Alignment.bottomRight,
               child:  FloatingActionButton(
