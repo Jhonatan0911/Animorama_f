@@ -1,4 +1,5 @@
 import 'package:f_202110_firebase/domain/controller/authentication_controller.dart';
+import 'package:f_202110_firebase/ui/pages/gps_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,8 @@ class _ContentPageState extends State<ContentPage> {
   AuthenticationController authenticationController = Get.find();
   static List<Widget> _widgets = <Widget>[
     FireStorePage(),
-    ChatPage()
+    ChatPage(),
+    GpsPage()
   ]; //páginas de navegación
 
   _onItemTapped(int index) {
@@ -24,27 +26,13 @@ class _ContentPageState extends State<ContentPage> {
     });
   }
 
-  _logout() async {
-    try {
-      await authenticationController.logOut();
-    } catch (e) {
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.purple,
           title: Text("Bienvenid@ ${authenticationController.userEmail()}"),
-          actions: [
-            IconButton(
-                icon: const Icon(Icons.exit_to_app),
-                onPressed: () {
-                  _logout();
-                }),
-          ]),
+      ),
       body: _widgets.elementAt(_selectIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -58,8 +46,8 @@ class _ContentPageState extends State<ContentPage> {
               label: "Mensajes"),
           BottomNavigationBarItem(
               backgroundColor: Colors.grey[200],
-              icon: Icon(Icons.search),
-              label: "Buscar"),
+              icon: Icon(Icons.place_outlined),
+              label: "Ubicacion"),
           BottomNavigationBarItem(
               backgroundColor: Colors.grey[200],
               icon: Icon(Icons.person),
