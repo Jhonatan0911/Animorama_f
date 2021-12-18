@@ -9,6 +9,7 @@ import 'package:f_202110_firebase/domain/controller/permissions.dart';
 import 'package:f_202110_firebase/domain/managements/location_management.dart';
 import 'package:f_202110_firebase/ui/widgets/location_card.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 // import 'package:workmanager/workmanager.dart';
 
 class GpsScreen extends StatefulWidget {
@@ -99,7 +100,22 @@ class _State extends State<GpsScreen> {
             } else {
               return const CircularProgressIndicator();
             }
-          })
+          }),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 370.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child:  FloatingActionButton(
+              child: Icon(Icons.share),
+              backgroundColor: Colors.purple,
+              foregroundColor: Colors.white,
+              onPressed: () {
+                Share.share("Mi ubicacion: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
+              },
+            )
+            )
+           
+          ),
         ],
       ),
     );
