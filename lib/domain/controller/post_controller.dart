@@ -54,11 +54,13 @@ class PostController extends GetxController {
   //Método sendmsg para enviar un nuevo mensaje
   Future<void> sendMsg(String text) async {
     String uid = FirebaseAuth.instance.currentUser!.uid;
+    String email = FirebaseAuth.instance.currentUser!.email ?? "a@a.com";;
+
     try {
       databaseReference
           .child("posts")
           .push()
-          .set({"text": text, "uid": uid});
+          .set({"text": text, "uid": uid, "email": email});
     } catch (error) {
       logError("Error enviando el mensaje $error");
       return Future.error(error);

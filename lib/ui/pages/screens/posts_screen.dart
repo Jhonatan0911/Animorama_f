@@ -49,13 +49,15 @@ class _PostsPageState extends State<PostsScreen> {
     logInfo('Current user? -> ${uid == element.user} msg -> ${element.text}');
     return Card(
       margin: EdgeInsets.all(4.0),
-      color: Colors.grey[300],
+      color: Colors.grey[100],
       child: ListTile(
-        onTap: () => postController.updateMsg(element),
-        onLongPress: () => postController.deleteMsg(element, posicion),
         title: Text(
+          element.email,
+          textAlign: TextAlign.left,
+        ),
+        subtitle: Text(
           element.text,
-          textAlign: uid == element.user ? TextAlign.right : TextAlign.left,
+          textAlign: TextAlign.center,
         ),
       ),
     );
@@ -151,8 +153,12 @@ class _PostsPageState extends State<PostsScreen> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance!.addPostFrameCallback((_) => _scrollToEnd());
     return Container(
+      
       child: Column(
-        children: [Expanded(flex: 4, child: _list()), _textInput()],
+        children: [
+          Container(child: _textInput()),
+          Expanded(flex: 4, child: _list()), 
+        ]
       ),
     );
   }
