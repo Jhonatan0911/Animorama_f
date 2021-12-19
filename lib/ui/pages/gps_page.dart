@@ -15,7 +15,7 @@ class GpsPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         controller: controller,
-        title: const Text("Ubicacion"),
+        title: const Text("Ubicación"),
         context: context,
       ),
       body: const SafeArea(

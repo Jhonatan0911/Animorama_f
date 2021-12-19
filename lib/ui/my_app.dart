@@ -3,6 +3,7 @@ import 'package:f_202110_firebase/domain/controller/chat_controller.dart';
 import 'package:f_202110_firebase/domain/controller/firestore_controller.dart';
 import 'package:f_202110_firebase/domain/controller/location.dart';
 import 'package:f_202110_firebase/domain/controller/permissions.dart';
+import 'package:f_202110_firebase/domain/controller/post_controller.dart';
 import 'package:f_202110_firebase/domain/managements/permission_management.dart';
 import 'package:f_202110_firebase/domain/managements/theme_management.dart';
 import 'package:f_202110_firebase/domain/controller/theme_controller.dart';
@@ -41,6 +42,7 @@ class _AppState extends State<App> {
         Get.put(PermissionsController());
     permissionsController.permissionManager = PermissionManager();
     Get.lazyPut(() => LocationController());
+    Get.lazyPut(() => PostController());
     initializeTheme();
     super.initState();
   }
@@ -70,6 +72,7 @@ class _AppState extends State<App> {
                   Get.put(FirebaseController());
                   Get.put(AuthenticationController());
                   Get.put(ChatController());
+                  Get.put(PostController());
                   return FirebaseCentral();
                 }
 

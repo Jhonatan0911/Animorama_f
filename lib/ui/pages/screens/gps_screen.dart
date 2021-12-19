@@ -110,7 +110,7 @@ class _State extends State<GpsScreen> {
               backgroundColor: Colors.purple,
               foregroundColor: Colors.white,
               onPressed: () {
-                Share.share("Mi ubicacion: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
+                Share.share("Mi ubicación: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
               },
             )
             )
