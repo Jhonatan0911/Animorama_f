@@ -58,7 +58,7 @@ class _State extends State<GpsScreen> {
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
               'CERCA DE MÍ',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline5,
             ),
           ),
           // ListView on remaining screen space
@@ -101,21 +101,21 @@ class _State extends State<GpsScreen> {
               return const CircularProgressIndicator();
             }
           }),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 300.0),
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child:  FloatingActionButton(
-              child: Icon(Icons.share),
-              backgroundColor: Colors.purple,
-              foregroundColor: Colors.white,
-              onPressed: () {
-                Share.share("Mi ubicación: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
-              },
-            )
-            )
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(vertical: 300.0),
+          //   child: Align(
+          //     alignment: Alignment.bottomRight,
+          //     child:  FloatingActionButton(
+          //     child: Icon(Icons.share),
+          //     backgroundColor: Colors.purple,
+          //     foregroundColor: Colors.white,
+          //     onPressed: () {
+          //       Share.share("Mi ubicación: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
+          //     },
+          //   )
+          //   )
            
-          ),
+          // ),
         ],
       ),
     );

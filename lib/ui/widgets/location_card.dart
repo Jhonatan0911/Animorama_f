@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:f_202110_firebase/ui/widgets/card.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
+import 'package:f_202110_firebase/domain/controller/location.dart';
+import 'package:get/get.dart';
+
 
 class LocationCard extends StatelessWidget {
   final String title;
@@ -22,6 +26,7 @@ class LocationCard extends StatelessWidget {
   // Passing all the customizable views as parameters
   @override
   Widget build(BuildContext context) {
+  final locationController = Get.find<LocationController>();
     Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
       key: const Key("locationCard"),
@@ -41,7 +46,6 @@ class LocationCard extends StatelessWidget {
           }
         },
       ),
-      // topRightWidget widget as an IconButton or null
 
       topRightWidget: onUpdate != null
           ? IconButton(
@@ -52,6 +56,17 @@ class LocationCard extends StatelessWidget {
               onPressed: onUpdate,
             )
           : null,
+
+
+        bottomRightWidget: IconButton(
+        icon: Icon(
+          Icons.share,
+          color: primaryColor,
+        ),
+        onPressed: () async {
+          Share.share("Mi ubicación: https://www.google.es/maps?q=${locationController.location!.lat},${locationController.location!.long}");
+        },
+      ),
       content: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -62,17 +77,17 @@ class LocationCard extends StatelessWidget {
               if (lat != 0)
               Text(
                 'Latitud:',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headline6,
               ),
               if (long != 0)
               Text(
                 'Longitud:',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headline6,
               ),
               if (distance != null)
                 Text(
                   'Distancia:',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
             ],
           ),
@@ -87,17 +102,17 @@ class LocationCard extends StatelessWidget {
               if (lat != 0)
                 Text(
                   '$lat',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               if (long != 0)
                 Text(
                   '$long',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               if (distance != null)
                 Text(
                   '$distance Km',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
             ],
           ))

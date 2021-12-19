@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppCard extends StatelessWidget {
-  final Widget? topLeftWidget, topRightWidget, content, extraContent;
+  final Widget? topLeftWidget, topRightWidget, bottomRightWidget, content, extraContent;
   final String title;
 
   // AppCard constructor
@@ -11,6 +11,7 @@ class AppCard extends StatelessWidget {
       this.content,
       this.topLeftWidget,
       this.topRightWidget,
+      this.bottomRightWidget,
       this.extraContent})
       : super(
           key: key,
@@ -39,11 +40,16 @@ class AppCard extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                 ),
                 topRightWidget != null
                     ? topRightWidget!
+                    : const SizedBox(
+                        width: 48.0,
+                      ),
+                bottomRightWidget != null
+                    ? bottomRightWidget!
                     : const SizedBox(
                         width: 48.0,
                       ),

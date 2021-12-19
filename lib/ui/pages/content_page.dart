@@ -49,7 +49,7 @@ class _ContentPageState extends State<ContentPage> {
           BottomNavigationBarItem(
               backgroundColor: Colors.grey[200],
               icon: Icon(Icons.person),
-              label: 'Mi cuenta'),
+              label: 'Publicaciones'),
         ],
         currentIndex: _selectIndex,
         selectedItemColor: Colors.amber[800],
