@@ -28,7 +28,7 @@ class LocationService implements MisionTicService {
       }
       return locations;
     } else {
-      throw Exception('Error on request');
+      throw Exception('No hay usuarios cerca');
     }
   }
 }
